@@ -1,6 +1,7 @@
 import express from 'express';
 import { allowCrossDomain } from './utils';
 import api from './api';
+import { PORT } from './constants';
 
 const app = express();
 
@@ -14,6 +15,6 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use('/api', api)
 
-app.listen(3000, () => {
-    console.log('Server running at http://localhost:3000/');
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
