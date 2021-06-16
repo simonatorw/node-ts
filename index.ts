@@ -1,7 +1,7 @@
 import express from 'express';
 import { allowCrossDomain } from './utils';
 import api from './api';
-import { ROOT_ROUTE, PORT } from './constants';
+import { ROOT_ROUTE, PORT, STATIC_FOLDER } from './constants';
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(
     })
 );
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(STATIC_FOLDER));
 app.use(ROOT_ROUTE, api)
 
 app.listen(PORT, () => {
