@@ -3,12 +3,12 @@ import { parse } from './utils';
 
 const router = express.Router()
 
-router.post('/v1/parse', function(req, res) {
-    res.json(parse(req.body.data, 'v1'));
-});
+router.post('/*/parse', function(req, res) {
+    const ver = req.path.split('/')[1];
 
-router.post('/v2/parse', function(req, res) {
-    res.json(parse(req.body.data, 'v2'));
+    if (ver === 'v1' || ver === 'v2') {
+        res.json(parse(req.body.data, ver));
+    }
 });
 
 export default router;
