@@ -15,7 +15,7 @@ export function allowCrossDomain(req: Request, res: Response, next: NextFunction
 }
 
 export function parse(data: string, ver: string): IInfo {
-    const info = data.split(/[0]+/);
+    const info: string[] = data.split(/[0]+/);
 
     return {
         firstName: ver === VER_2 ? info[0] : data.substring(0, data.indexOf(info[1])),
