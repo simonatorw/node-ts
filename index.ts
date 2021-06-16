@@ -7,7 +7,7 @@ const app = express();
 app.use(allowCrossDomain);
 app.use(
     express.urlencoded({
-      extended: true
+        extended: true
     })
 );
 app.use(express.json());
@@ -17,6 +17,3 @@ app.use('/api', api)
 app.listen(3000, () => {
     console.log('Server running at http://localhost:3000/');
 });
-
-
-
